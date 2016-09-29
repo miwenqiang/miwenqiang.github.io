@@ -1,0 +1,375 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Mickey">
+  
+  
+  
+  
+    <meta name="description" content="consoleconsole 本意是控制台
+console在前台运行，就是chrome devtoos的 console
+console在后台运行，就是命令行界面
+Http请求HTTP 请求 = Verb + Path；HTTP 请求 = get/post/… + /about
+EXPRESS
+什么是express?
+Node.js web applicationframework
+Node...">
+  
+  <title>express [ MyBlog ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+  
+</head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+  
+    <div class="item next">
+      <a href="/2016/09/29/mongodb/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        mongodb
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://7te9fe.com1.z0.glb.clouddn.com/default_avatar.jpg"/>
+          <div id="homelink">MyBlog</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Archives</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Tags</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Categories</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="https://github.com/miwenqiang">Github</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>express</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">撰写于 2016-09-29</span>
+      
+        <span id = "post-title-updated">修改于 2016-09-29</span>
+      
+      
+      <span id = "post-title-categories">分类
+      
+      
+        
+        
+        <a href="/categories/学习/">学习</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      标签
+      
+      
+        
+        
+        <a href="/tags/后台/">后台</a>
+      
+      </span>
+      
+    </p>
+    
+    <h1 id="console"><a href="#console" class="headerlink" title="console"></a>console</h1><p>console 本意是控制台</p>
+<p>console在前台运行，就是chrome devtoos的 console</p>
+<p>console在后台运行，就是命令行界面</p>
+<h1 id="Http请求"><a href="#Http请求" class="headerlink" title="Http请求"></a>Http请求</h1><p>HTTP 请求 = Verb + Path；<br>HTTP 请求 = get/post/… + /about</p>
+<h1 id="EXPRESS"><a href="#EXPRESS" class="headerlink" title="EXPRESS"></a>EXPRESS</h1><ol>
+<li><p>什么是express?</p>
+<p>Node.js web application<br>framework</p>
+<p>Nodejs 技术的 Web 应用用框架</p>
+<p>express 是后台框架</p>
+<p>React 是前端框架</p>
+</li>
+<li><p>express的作用是什么？</p>
+<p>网络服务器  nginx  存储静态页面  html/css/js;</p>
+<p>数据库     mongodb 存储数据;</p>
+<p>express 根据请求 :</p>
+<ul>
+<li><p>查询数据库;</p>
+</li>
+<li><p>把数据插入html模板 ;</p>
+</li>
+</ul>
+</li>
+<li><p>express 如何操作?</p>
+<p>$mkdir mi-express-api</p>
+<p>$cd mi-express-api</p>
+<p>$npm init   ///将一个项目转换为node项目，生成packge.json,记录版本信息</p>
+<p>$npm install –save express    ///下载express包</p>
+<p>express 代码是运行在服务器上</p>
+<p>什么是路由?router ?</p>
+<p>基本意思?</p>
+<p>根据 http 请求,决定哪个⻚页面面要显示示</p>
+<p>拓展意思?</p>
+<p>根据 http 请求,决定哪一一段代码要执行行</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)    <span class="comment">////将express引入Js</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> app = express()</div><div class="line"></div><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;    <span class="comment">///这部分是用来接收请求</span></div><div class="line">  res.send(<span class="string">'Hello World'</span>)</div><div class="line">&#125;)</div><div class="line">app.get(<span class="string">'/xiaomi'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;     <span class="comment">////这部分是用来接收请求</span></div><div class="line">  res.send(<span class="string">'Hello xiaomi'</span>)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.listen(<span class="number">3000</span>)</div></pre></td></tr></table></figure>
+<p>读取请求参数</p>
+<p>request=verb + path</p>
+<p>参数（parameters)作为path的一部分传给后台服务器，这样可以实现前台的请求传入后台代码中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)    </div><div class="line"></div><div class="line"><span class="keyword">var</span> app = express()</div><div class="line"></div><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;   </div><div class="line">  res.send(<span class="string">'console.log(req.params)'</span>)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.listen(<span class="number">3000</span>)</div></pre></td></tr></table></figure>
+<h1 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h1><p>通过curl发命令模拟Http请求进行测试.<br>$curl –request GET localhost:3000/:name</p>
+<p>$curl –request POST localhost:3000/:name</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</div><div class="line"><span class="keyword">var</span> app = express()</div><div class="line"></div><div class="line">app.get(<span class="string">'/:name'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> result=req.params.name</div><div class="line">  <span class="keyword">var</span> page =<span class="string">"&lt;html&gt;"</span>+</div><div class="line">              <span class="string">"&lt;body&gt;"</span>+</div><div class="line">                <span class="string">"&lt;h1&gt;"</span>+</div><div class="line">                result+<span class="string">" "</span>+<span class="string">"de Blog"</span> +</div><div class="line">                <span class="string">"&lt;/h1&gt;"</span>+</div><div class="line">              <span class="string">"&lt;/body&gt;"</span>+</div><div class="line">            <span class="string">"&lt;/html&gt;"</span></div><div class="line">  res.send(page)</div><div class="line"></div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.post(<span class="string">'/:name'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">  res.send(<span class="string">"a post request received"</span>+req.params.name)</div><div class="line">&#125;)</div><div class="line">app.listen(<span class="number">3000</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'running on port 3000...plz visit http://localhost:3000'</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <div class="random-toc">
+    <h2>目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#console"><span class="toc-text">console</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Http请求"><span class="toc-text">Http请求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#EXPRESS"><span class="toc-text">EXPRESS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#curl"><span class="toc-text">curl</span></a></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+
+  
+
+  
+    <a href="/2016/09/29/mongodb/" class="next">下一篇 mongodb &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Mickey using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://7te9fe.com1.z0.glb.clouddn.com/default_avatar.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/miwenqiang">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://coding.net/u/miwenqiang">
+        
+          <i class="icon iconfont coding">&#xe607;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["slideLeft2","slideRight2","flash2"],"timer":true,"delay":5000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "D7CCC8";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

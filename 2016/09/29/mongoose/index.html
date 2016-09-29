@@ -1,0 +1,399 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Mickey">
+  
+  
+  
+  
+    <meta name="description" content="MVC 框架   M :model       模型
+   V: Viewport    视图
+   C: controller  控制器
+mongoose  一个项目只需要一个数据库就够了，因为一个数据库可以建很多集合，所以数据库名与项目名尽量一致。
+
+什么是mongoose? 是express代码与mongodb的连接层
+mongoose的作用？
+把数据转化成js对象，不在用mongo-...">
+  
+  <title>mongoose [ MyBlog ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+  
+</head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2016/09/29/mongodb/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        mongodb
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2016/09/29/projectDeploy/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        deploy
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://7te9fe.com1.z0.glb.clouddn.com/default_avatar.jpg"/>
+          <div id="homelink">MyBlog</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Archives</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Tags</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Categories</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="https://github.com/miwenqiang">Github</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>mongoose</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">撰写于 2016-09-29</span>
+      
+        <span id = "post-title-updated">修改于 2016-09-29</span>
+      
+      
+      <span id = "post-title-categories">分类
+      
+      
+        
+        
+        <a href="/categories/学习/">学习</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      标签
+      
+      
+        
+        
+        <a href="/tags/后台/">后台</a>
+      
+      </span>
+      
+    </p>
+    
+    <h1 id="MVC-框架"><a href="#MVC-框架" class="headerlink" title="MVC 框架"></a>MVC 框架</h1><p>   M :model       模型</p>
+<p>   V: Viewport    视图</p>
+<p>   C: controller  控制器</p>
+<h1 id="mongoose"><a href="#mongoose" class="headerlink" title="mongoose"></a>mongoose</h1><p>  一个项目只需要一个数据库就够了，因为一个数据库可以建很多集合，所以数据库名与项目名尽量一致。</p>
+<ol>
+<li>什么是mongoose?<br> 是express代码与mongodb的连接层</li>
+<li><p>mongoose的作用？</p>
+<p>把数据转化成js对象，不在用mongo-shell操作数据库，以便我们用js代码来操作mongodb数据库中的数据</p>
+</li>
+<li><p>mongoose的使用</p>
+<ul>
+<li><p>首先必须已经安装nodejs与mongodb</p>
+</li>
+<li><p>在项目中安装mongoose</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$npm install --save mongoose</div></pre></td></tr></table></figure>
+</li>
+<li><p>在项目只能够创建一个数据库连接，如下:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"> <span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);    <span class="comment">//引用mongoose模块</span></div><div class="line"><span class="keyword">var</span> db = mongoose.createConnection(<span class="string">'localhost'</span>,<span class="string">'test'</span>); <span class="comment">//创建一个数据库连接</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>打开本机localhost的test数据库时，我们可以监测是否有异常</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">db.on(<span class="string">'error'</span>,<span class="built_in">console</span>.error.bind(<span class="built_in">console</span>,<span class="string">'连接错误:'</span>));</div><div class="line"> db.once(<span class="string">'open'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="comment">//一次打开记录</span></div><div class="line"> &#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意：<br>成功开启数据库后，就可以执行数据库相应操作，假设以下代码都在回调中处理</p>
+<ul>
+<li><p>定义一个Schema(概要)</p>
+<p>描述数据记录的结构，规定数据记录中的字段名称以及字段的数据类型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> catSchema = mongoose.Schema(&#123;</div><div class="line"><span class="attr">name</span>: <span class="built_in">String</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>将该Schema发布为Model</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> cat = mongoose.model(<span class="string">'cat'</span>, catSchema);</div><div class="line"><span class="comment">//第一个参数：模型对应的集合名称的单数</span></div><div class="line"><span class="comment">//第二个参数：一条数据记录的结构</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>用Model创建Entity（创建数据记录）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> kitty = <span class="keyword">new</span> cat(&#123; <span class="attr">name</span>: <span class="string">'kitty'</span> &#125;);</div><div class="line"><span class="built_in">console</span>.log(kitty.name);</div></pre></td></tr></table></figure>
+</li>
+<li><p>将所创建的 Entity进行保存（储存数据记录）                   </p>
+</li>
+</ul>
+</li>
+<li><p>用js代码进行增删改查</p>
+<h3 id="crud"><a href="#crud" class="headerlink" title="crud"></a>crud</h3><ul>
+<li><p>c: creat  (增加)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> userSchema = mongoose.Schema(&#123;<span class="attr">userName</span>: <span class="built_in">String</span>,<span class="attr">password</span>:<span class="built_in">Number</span>,<span class="attr">age</span>:<span class="built_in">String</span>&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> Info = mongoose.model(<span class="string">'user'</span>, userSchema);</div><div class="line"></div><div class="line"><span class="keyword">var</span> xiaomi = <span class="keyword">new</span> Info(&#123; <span class="attr">userName</span>: <span class="string">'xiaomi'</span>,<span class="attr">password</span>:<span class="number">123456</span>,<span class="attr">age</span>:<span class="string">'48岁'</span>&#125;);</div><div class="line"></div><div class="line">xiaomi.save()</div></pre></td></tr></table></figure>
+</li>
+<li><p>r:remove  (删除)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Info.findById(&#123;<span class="attr">_id</span>: <span class="string">'57ecc66763f5b511c427435f'</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>&#123;</div><div class="line">   user.remove(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">     <span class="built_in">console</span>.log(<span class="string">'delete'</span>)</div><div class="line">     Info.find().exec(<span class="function"><span class="keyword">function</span>(<span class="params">err, users</span>) </span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(users);</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>u:update  （修改后再通过save进行修改）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Info.findById(&#123;<span class="attr">_id</span>: <span class="string">'57ecc66763f5b511c427435f'</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>&#123;</div><div class="line">  user.age = <span class="string">'666666'</span></div><div class="line">  user.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'更新了！'</span>)</div><div class="line">    Info.find().exec(<span class="function"><span class="keyword">function</span>(<span class="params">err, users</span>) </span>&#123;</div><div class="line">      <span class="comment">// 异步执行</span></div><div class="line">      <span class="built_in">console</span>.log(users);</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>d:find (查找)findId / findName</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Info.find().exec(<span class="function"><span class="keyword">function</span>(<span class="params">err, users</span>) </span>&#123;</div><div class="line">      <span class="comment">// 异步执行</span></div><div class="line">      <span class="built_in">console</span>.log(users);</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <div class="random-toc">
+    <h2>目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MVC-框架"><span class="toc-text">MVC 框架</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mongoose"><span class="toc-text">mongoose</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#crud"><span class="toc-text">crud</span></a></li></ol></li></ol></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2016/09/29/mongodb/" class="prev">&larr; 上一篇 mongodb</a>
+  
+
+  
+
+  
+    <a href="/2016/09/29/projectDeploy/" class="next">下一篇 deploy &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Mickey using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://7te9fe.com1.z0.glb.clouddn.com/default_avatar.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/miwenqiang">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://coding.net/u/miwenqiang">
+        
+          <i class="icon iconfont coding">&#xe607;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["slideLeft2","slideRight2","flash2"],"timer":true,"delay":5000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "D7CCC8";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+
