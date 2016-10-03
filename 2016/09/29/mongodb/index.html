@@ -44,21 +44,21 @@ MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对
 <div class="side-navigate hide-area">
   
     <div class="item prev">
-      <a href="/2016/09/29/express/">
-        <div class="item-icon"></div>
-      </a>
-      <div class="item-title">
-        express
-      </div>
-    </div>
-  
-  
-    <div class="item next">
       <a href="/2016/09/29/mongoose/">
         <div class="item-icon"></div>
       </a>
       <div class="item-title">
         mongoose
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2016/09/29/express/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        express
       </div>
     </div>
   
@@ -128,12 +128,12 @@ MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对
   <article id="post">
     <h1>mongodb</h1>
     <p class="page-title-sub">
-      <span id = "post-title-date">撰写于 2016-09-29</span>
+      <span id = "post-title-date">Created at 2016-09-29</span>
       
-        <span id = "post-title-updated">修改于 2016-09-29</span>
+        <span id = "post-title-updated">Updated at 2016-09-29</span>
       
       
-      <span id = "post-title-categories">分类
+      <span id = "post-title-categories">Category
       
       
         
@@ -144,7 +144,7 @@ MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对
       
       
       <span id = "post-title-tags">
-      标签
+      Tag
       
       
         
@@ -412,10 +412,10 @@ MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对
 
   </article>
   <div class="random-toc-area">
-  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
-  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
   <div class="random-toc">
-    <h2>目录</h2>
+    <h2>Table of Content</h2>
     <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text">    mongodb</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-什么是MongoDB"><span class="toc-text">1. 什么是MongoDB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-MongoDB安装"><span class="toc-text">2. MongoDB安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-windows安装"><span class="toc-text">2.1 windows安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-mac安装"><span class="toc-text">2.2 mac安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-mongodb启动与连接"><span class="toc-text">3. mongodb启动与连接</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-windows启动服务器端"><span class="toc-text">3.1 windows启动服务器端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-启动客户端连接服务器"><span class="toc-text">3.2 启动客户端连接服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-MongoDB基本概念"><span class="toc-text">4. MongoDB基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-数据库操作"><span class="toc-text">5. 数据库操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-使用数据库"><span class="toc-text">5.1 使用数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-查看所有数据库"><span class="toc-text">5.2 查看所有数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-查看当前使用的数据库"><span class="toc-text">5.3 查看当前使用的数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-删除数据库"><span class="toc-text">5.4 删除数据库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-集合操作"><span class="toc-text">6. 集合操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-查看帮助"><span class="toc-text">6.1 查看帮助</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-查看数据库下的集合"><span class="toc-text">6.2 查看数据库下的集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-创建集合"><span class="toc-text">6.3 创建集合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-插入文档"><span class="toc-text">7. 插入文档</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-insert"><span class="toc-text">7.1 insert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-save"><span class="toc-text">7.2 save</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-更新文档"><span class="toc-text">8. 更新文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-文档的删除"><span class="toc-text">9. 文档的删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-查询文档"><span class="toc-text">10. 查询文档</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-find"><span class="toc-text">10.1 find</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-查询指定列"><span class="toc-text">10.2 查询指定列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-findOne"><span class="toc-text">10.3 findOne</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-条件操作符"><span class="toc-text">11. 条件操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-1-大于操作符"><span class="toc-text">11.1 大于操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-2-大于等于操作符"><span class="toc-text">11.2 大于等于操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-3-小于操作符"><span class="toc-text">11.3 小于操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-4-小于等于操作符"><span class="toc-text">11.4 小于等于操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-5-同时使用-gte和-lte"><span class="toc-text">11.5 同时使用 $gte和$lte</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-6-等于"><span class="toc-text">11.6 等于</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-7-使用-id进行查询"><span class="toc-text">11.7 使用 _id进行查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-8-查询结果集的条数"><span class="toc-text">11.8 查询结果集的条数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-9-正则匹配"><span class="toc-text">11.9 正则匹配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-与和或"><span class="toc-text">12. 与和或</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#12-1-and"><span class="toc-text">12.1 and</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-2-or"><span class="toc-text">12.2 or</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-3-and和or联用"><span class="toc-text">12.3 and和or联用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-分页查询"><span class="toc-text">13. 分页查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#13-1-limit"><span class="toc-text">13.1 limit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-2-skip"><span class="toc-text">13.2 skip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-3-skip-limit"><span class="toc-text">13.3 skip+limit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-4-sort排序"><span class="toc-text">13.4 sort排序</span></a></li></ol></li></ol></li></ol>
   </div>
 </div>
@@ -423,13 +423,13 @@ MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对
   
 <nav id="pagination">
   
-    <a href="/2016/09/29/express/" class="prev">&larr; 上一篇 express</a>
+    <a href="/2016/09/29/mongoose/" class="prev">&larr; Prev post mongoose</a>
   
 
   
 
   
-    <a href="/2016/09/29/mongoose/" class="next">下一篇 mongoose &rarr;</a>
+    <a href="/2016/09/29/express/" class="next">Next post express &rarr;</a>
   
 </nav>
 
