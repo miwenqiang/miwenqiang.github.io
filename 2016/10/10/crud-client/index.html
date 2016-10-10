@@ -16,24 +16,12 @@
   
   
   
-    <meta name="description" content="创建一个项目部署项目
-上传代码 //常用ssh或git与github结合使用
-$scp -r 本地项目  服务器地址：
-
-登陆服务器
-$ssh 服务器地址
-$password
-
-安装（软件）服务器 server
-$sudo apt-get install nginx
-sudo:启用管理员权限
-apt-get: 安装软件
-nginx: 被安装的软件
-
-配置服务器nginx
-$cd /etc/n...">
+    <meta name="description" content="crud （客户端）从客户端操作数据库   客户端通过不同的request来实现对数据库的crud
+   request包括verb 和 path
+   verb {get（获取），post（写内容），put（更新），delete（删除）}
+   12345678910get/posts    //读取全部文章post/posts   //新建一篇文章pull/posts/:id  //更新...">
   
-  <title>deploy [ MyBlog ]</title>
+  <title>crud-client [ MyBlog ]</title>
   
   
     <link rel="shortcut icon" href="/favicon.ico">
@@ -52,22 +40,13 @@ $cd /etc/n...">
 <body>
 <div class="side-navigate hide-area">
   
-    <div class="item prev">
-      <a href="/2016/09/29/mongoose/">
-        <div class="item-icon"></div>
-      </a>
-      <div class="item-title">
-        mongoose
-      </div>
-    </div>
-  
   
     <div class="item next">
-      <a href="/2016/09/29/mongodb/">
+      <a href="/2016/10/10/server-client/">
         <div class="item-icon"></div>
       </a>
       <div class="item-title">
-        mongodb
+        server&client
       </div>
     </div>
   
@@ -135,11 +114,11 @@ $cd /etc/n...">
       
       
   <article id="post">
-    <h1>deploy</h1>
+    <h1>crud-client</h1>
     <p class="page-title-sub">
-      <span id = "post-title-date">Created at 2016-09-29</span>
+      <span id = "post-title-date">Created at 2016-10-10</span>
       
-        <span id = "post-title-updated">Updated at 2016-09-29</span>
+        <span id = "post-title-updated">Updated at 2016-10-10</span>
       
       
       <span id = "post-title-categories">Category
@@ -164,45 +143,26 @@ $cd /etc/n...">
       
     </p>
     
-    <h3 id="创建一个项目"><a href="#创建一个项目" class="headerlink" title="创建一个项目"></a>创建一个项目</h3><h3 id="部署项目"><a href="#部署项目" class="headerlink" title="部署项目"></a>部署项目</h3><ol>
-<li><p>上传代码 //常用ssh或git与github结合使用</p>
-<p>$scp -r 本地项目  服务器地址：</p>
-</li>
-<li><p>登陆服务器</p>
-<p>$ssh 服务器地址</p>
-<p>$password</p>
-</li>
-<li><p>安装（软件）服务器 server</p>
-<p>$sudo apt-get install nginx</p>
-<p>sudo:启用管理员权限</p>
-<p>apt-get: 安装软件</p>
-<p>nginx: 被安装的软件</p>
-</li>
-<li><p>配置服务器nginx</p>
-<p>$cd /etc/nginx/      ///跳到nginx的配置区域</p>
-<p>$cd /sites-enabled/     ///打开添加新网站的配置文件夹</p>
-<p>$sudo vim 名称.conf      ///修改编写配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">server&#123;</div><div class="line">  listen 80 default;</div><div class="line">  server_name xxx.com;</div><div class="line">  root /home/miwenqiang/项目名;     ///注意结尾的符号</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2></li>
-</ol>
-<h3 id="设置域名"><a href="#设置域名" class="headerlink" title="设置域名"></a>设置域名</h3><pre><code>sudo /etc/hosts/      //注意是在本机进行设置的域名
-</code></pre><h3 id="ssh-login-without-password"><a href="#ssh-login-without-password" class="headerlink" title="ssh login without password"></a>ssh login without password</h3><ol>
-<li><p>第一步在开发机生成 ssh key</p>
-<p>ssh-keygen</p>
-</li>
-<li><p>开发机 $cd .ssh</p>
-<p>   .ssh$ ls</p>
-<p>   公钥id_rsa.pub 私钥id_rsa</p>
-<p>copy id_rsa.pub</p>
-</li>
-<li><p>登陆服务器  </p>
-<p>ssh 服务器</p>
-</li>
-<li><p>$cd .ssh</p>
-<p>.ssh$ sudo vim authorized_keys</p>
-<p>复制 id_rsa.pub 到此       /////注意格式必须严格不能多空格</p>
+    <h1 id="crud-（客户端）从客户端操作数据库"><a href="#crud-（客户端）从客户端操作数据库" class="headerlink" title="crud （客户端）从客户端操作数据库"></a>crud （客户端）从客户端操作数据库</h1><p>   客户端通过不同的request来实现对数据库的crud</p>
+<p>   request包括verb 和 path</p>
+<p>   verb {get（获取），post（写内容），put（更新），delete（删除）}</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">get/posts    //读取全部文章</div><div class="line"></div><div class="line">post/posts   //新建一篇文章</div><div class="line"></div><div class="line">pull/posts/:id  //更新一篇文章</div><div class="line"></div><div class="line">get/posts/:id   //读取一篇文章</div><div class="line"></div><div class="line">delete/posts/:id     //删除一篇文章</div></pre></td></tr></table></figure>
+<p>   这就是所谓的rest架构</p>
+<p> #express 路由控制  + mongoose</p>
+<ol>
+<li><p>实现express路由</p>
+<p>express路由跑在服务器上，响应客户端发出的request决定那部分后台代码要被执行（任务分发）</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> app = express()</div><div class="line"></div><div class="line"></div><div class="line">app.get(<span class="string">'/posts'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'get posts'</span>)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.post(<span class="string">'/posts'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'post'</span>)  </div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.put(<span class="string">'/posts/:id'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'put'</span>)  </div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.get(<span class="string">'/posts/:id'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'get/posts/:id'</span>)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.delete(<span class="string">'/posts/:id'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'delete'</span>)  </div><div class="line">&#125;)</div><div class="line"></div><div class="line">app.listen(<span class="number">3000</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'running on post 3000'</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>2.curl工具模拟调试</p>
+<p>$ curl –request PUT  localhost:3000/posts</p>
+<p>$ curl –request GET  localhost:3000/posts</p>
+<p>$ curl –request GET  localhost:3000/posts/sds</p>
+<p>$ curl –request PULL  localhost:3000/posts/sds</p>
+<p>$ curl –request DELETE  localhost:3000/posts/sds</p>
 </li>
 </ol>
+<h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><p> 什么是API ?</p>
+<p> API是由当前程序提供出来的，提供给另外一个程序的开发者使用的程序接口，对于前端开发者来说就是WEB API</p>
 
   </article>
   <div class="random-toc-area">
@@ -210,20 +170,18 @@ $cd /etc/n...">
   <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
   <div class="random-toc">
     <h2>Table of Content</h2>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个项目"><span class="toc-text">创建一个项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署项目"><span class="toc-text">部署项目</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS"><span class="toc-text">DNS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置域名"><span class="toc-text">设置域名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh-login-without-password"><span class="toc-text">ssh login without password</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#crud-（客户端）从客户端操作数据库"><span class="toc-text">crud （客户端）从客户端操作数据库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#API"><span class="toc-text">API</span></a></li></ol>
   </div>
 </div>
 
   
 <nav id="pagination">
   
-    <a href="/2016/09/29/mongoose/" class="prev">&larr; Prev post mongoose</a>
-  
 
   
 
   
-    <a href="/2016/09/29/mongodb/" class="next">Next post mongodb &rarr;</a>
+    <a href="/2016/10/10/server-client/" class="next">Next post server&client &rarr;</a>
   
 </nav>
 

@@ -16,11 +16,22 @@
   
   
   
-    <meta name="description" content="我的老师peter  今天，peter老师给我们讲解了他的人生经历，我觉得都可以携程一本书了。
-  他也是一个农村娃，怎么感觉差距就这么大呢？毕业于河北的一个本科院校，之后考研就读于华北电力大学，凭借自己强悍的英语水平，有许多外国人做朋友，据说他的第一份工作还是老外给介绍的，听到这我感觉就很震撼了，足以看出学好英语是多么重要的一件事！
-  哎！语言匮乏啊！就写这么多，希望有那么一天回过头来，...">
+    <meta name="description" content="同源策略 报错信息
+
+违背了同源策略，必须域名相同同时服务器端口也得相同
+解决方法：关闭同源策略
+如何关闭同源策略？
+1.设置http header（报头）
+  什么是http header？
   
-  <title>peter 经历 [ MyBlog ]</title>
+  将报头中的Access-Control-Allow-Origin:*进行这样设置对所有人开放  
+  查看报头及正文信息
+  
+  只查看报头信息
+  
+2.开启跨域资源共享(cors)  ...">
+  
+  <title>Same Origin Policy [ MyBlog ]</title>
   
   
     <link rel="shortcut icon" href="/favicon.ico">
@@ -40,21 +51,21 @@
 <div class="side-navigate hide-area">
   
     <div class="item prev">
-      <a href="/2016/10/03/feeling/">
+      <a href="/2016/10/10/server-client/">
         <div class="item-icon"></div>
       </a>
       <div class="item-title">
-        feeling
+        server&client
       </div>
     </div>
   
   
     <div class="item next">
-      <a href="/2016/09/29/express/">
+      <a href="/2016/10/07/mongodb操作/">
         <div class="item-icon"></div>
       </a>
       <div class="item-title">
-        express
+        mongodb操作
       </div>
     </div>
   
@@ -122,11 +133,11 @@
       
       
   <article id="post">
-    <h1>peter 经历</h1>
+    <h1>Same Origin Policy</h1>
     <p class="page-title-sub">
-      <span id = "post-title-date">Created at 2016-09-30</span>
+      <span id = "post-title-date">Created at 2016-10-10</span>
       
-        <span id = "post-title-updated">Updated at 2016-10-03</span>
+        <span id = "post-title-updated">Updated at 2016-10-10</span>
       
       
       <span id = "post-title-categories">Category
@@ -134,7 +145,7 @@
       
         
         
-        <a href="/categories/介绍/">介绍</a>
+        <a href="/categories/学习/">学习</a>
       
       </span>
       
@@ -145,15 +156,31 @@
       
         
         
-        <a href="/tags/人物/">人物</a>
+        <a href="/tags/后台/">后台</a>
       
       </span>
       
     </p>
     
-    <h3 id="我的老师peter"><a href="#我的老师peter" class="headerlink" title="我的老师peter"></a>我的老师peter</h3><p>  今天，peter老师给我们讲解了他的人生经历，我觉得都可以携程一本书了。</p>
-<p>  他也是一个农村娃，怎么感觉差距就这么大呢？毕业于河北的一个本科院校，之后考研就读于华北电力大学，凭借自己强悍的英语水平，有许多外国人做朋友，据说他的第一份工作还是老外给介绍的，听到这我感觉就很震撼了，足以看出学好英语是多么重要的一件事！</p>
-<p>  哎！语言匮乏啊！就写这么多，希望有那么一天回过头来，看看自己的一生，不求能够多么丰富精彩，也希望不至于碌碌无为，没有一丝看点！</p>
+    <h3 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h3><p> 报错信息</p>
+<p><img src="http://odqa9lxr4.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE20161004091612.png" alt=""></p>
+<p>违背了同源策略，必须域名相同同时服务器端口也得相同</p>
+<p>解决方法：关闭同源策略</p>
+<p>如何关闭同源策略？</p>
+<p>1.设置http header（报头）</p>
+<p>  什么是http header？</p>
+<p>  <img src="http://odqa9lxr4.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE20161010202157.png" alt=""></p>
+<p>  将报头中的Access-Control-Allow-Origin:*进行这样设置对所有人开放<br>  <img src="http://odqa9lxr4.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE20161004094406.png" alt=""></p>
+<p>  查看报头及正文信息</p>
+<p>  <img src="http://odqa9lxr4.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE20161004094333.png" alt=""></p>
+<p>  只查看报头信息</p>
+<p>  <img src="http://odqa9lxr4.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE20161004094442.png" alt=""></p>
+<p>2.开启跨域资源共享(cors)<br>  什么是cors？</p>
+<p>  Cross Origin resource share</p>
+<p>  下载cors包</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --save cors</div></pre></td></tr></table></figure>
+<p>  引入并使用</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">  var cors = require(&apos;cors&apos;);  //解除同源限制</div><div class="line">app.use(cors());</div></pre></td></tr></table></figure>
 
   </article>
   <div class="random-toc-area">
@@ -161,20 +188,20 @@
   <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
   <div class="random-toc">
     <h2>Table of Content</h2>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#我的老师peter"><span class="toc-text">我的老师peter</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#同源策略"><span class="toc-text">同源策略</span></a></li></ol>
   </div>
 </div>
 
   
 <nav id="pagination">
   
-    <a href="/2016/10/03/feeling/" class="prev">&larr; Prev post feeling</a>
+    <a href="/2016/10/10/server-client/" class="prev">&larr; Prev post server&client</a>
   
 
   
 
   
-    <a href="/2016/09/29/express/" class="next">Next post express &rarr;</a>
+    <a href="/2016/10/07/mongodb操作/" class="next">Next post mongodb操作 &rarr;</a>
   
 </nav>
 
