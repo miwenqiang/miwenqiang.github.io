@@ -1,0 +1,415 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Mickey">
+  
+  
+  
+  
+    <meta name="description" content="服务器端操作深入服务器端简单介绍12345×          http协议         客户端    &lt;---------&gt;     服务器端 (Linux系统)  ||                1.存储网页  网络服务器 nginx  ||                2.存储数据  数据库  mongodb用户能看到的
+http协议参考资料：跟着peter学英语...">
+  
+  <title>本地模拟 [ MyBlog ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+  
+</head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2016/10/29/web存储/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        web存储
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2016/10/17/css笔记/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        css笔记
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://7te9fe.com1.z0.glb.clouddn.com/default_avatar.jpg"/>
+          <div id="homelink">MyBlog</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Archives</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Tags</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Categories</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="https://github.com/miwenqiang">Github</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>本地模拟</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2016-10-17</span>
+      
+        <span id = "post-title-updated">Updated at 2016-10-17</span>
+      
+      
+      <span id = "post-title-categories">Category
+      
+      
+        
+        
+        <a href="/categories/学习/">学习</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/后台/">后台</a>
+      
+      </span>
+      
+    </p>
+    
+    <h1 id="服务器端操作"><a href="#服务器端操作" class="headerlink" title="服务器端操作"></a>服务器端操作</h1><h1 id="深入服务器端"><a href="#深入服务器端" class="headerlink" title="深入服务器端"></a>深入服务器端</h1><h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">×          http协议         </div><div class="line">客户端    &lt;---------&gt;     服务器端 (Linux系统)</div><div class="line">  ||                <span class="number">1.</span>存储网页  网络服务器 nginx</div><div class="line">  ||                <span class="number">2.</span>存储数据  数据库  mongodb</div><div class="line">用户能看到的</div></pre></td></tr></table></figure>
+<h6 id="http协议参考资料：跟着peter学英语-haoqicat-com-自学"><a href="#http协议参考资料：跟着peter学英语-haoqicat-com-自学" class="headerlink" title="http协议参考资料：跟着peter学英语 / haoqicat.com. ( 自学 )"></a>http协议参考资料：跟着peter学英语 / haoqicat.com. ( 自学 )</h6><h4 id="Linux系统："><a href="#Linux系统：" class="headerlink" title="Linux系统："></a>Linux系统：</h4><h6 id="市面上有"><a href="#市面上有" class="headerlink" title="市面上有:"></a>市面上有:</h6><ul>
+<li>Redhat   ( 企业级服务器，太复杂，不推荐 )；</li>
+<li>centerOs ( Redhat简易版，不推荐 )；</li>
+<li>Ubuntu  ( 创业最流行用，由南非开发的，原意为互相帮助，推荐 )；</li>
+<li>deepin 深度   ( Ubuntu 的建议版，推荐 )；</li>
+</ul>
+<h5 id="微信开发-：-H5-JS"><a href="#微信开发-：-H5-JS" class="headerlink" title="微信开发 ： H5 + JS"></a>微信开发 ： H5 + JS</h5><h4 id="In-Order-to-use-server"><a href="#In-Order-to-use-server" class="headerlink" title="In Order to use server"></a>In Order to use server</h4><h6 id="you-will-install-Ubuntu-linux-Os-and-you-will-use-command-line-to-run-it"><a href="#you-will-install-Ubuntu-linux-Os-and-you-will-use-command-line-to-run-it" class="headerlink" title="you will install Ubuntu linux Os and you will use command line to run it."></a>you will install Ubuntu linux Os and you will use command line to run it.</h6><h2 id="部署项目-deploy"><a href="#部署项目-deploy" class="headerlink" title="部署项目(deploy)"></a>部署项目(deploy)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">×        请求requset</div><div class="line">开发机   &lt;-----------&gt;    服务器</div><div class="line">×        响应response</div></pre></td></tr></table></figure>
+<h4 id="1-上传代码：ssh-git-github"><a href="#1-上传代码：ssh-git-github" class="headerlink" title="1. 上传代码：ssh/git/github"></a>1. 上传代码：ssh/git/github</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp -r express-api 用户名@IP号:</div></pre></td></tr></table></figure>
+<p>注意： scp必须在自己的开发机器上执行；</p>
+<h4 id="2-登陆到服务器上："><a href="#2-登陆到服务器上：" class="headerlink" title="2. 登陆到服务器上："></a>2. 登陆到服务器上：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh 用户名@IP号</div><div class="line">输入密码×××××××</div></pre></td></tr></table></figure>
+<h4 id="3-安装（软件）服务器-server："><a href="#3-安装（软件）服务器-server：" class="headerlink" title="3. 安装（软件）服务器 server："></a>3. 安装（软件）服务器 server：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install nginx</div></pre></td></tr></table></figure>
+<ul>
+<li>sudo ：使用管理员权限；</li>
+<li>apt-get install ：安装软件；</li>
+<li>nginx ：被安装的软件；</li>
+</ul>
+<h4 id="4-配置服务器nginx"><a href="#4-配置服务器nginx" class="headerlink" title="4. 配置服务器nginx:"></a>4. 配置服务器nginx:</h4><h5 id="跳转到nginx的配置区域"><a href="#跳转到nginx的配置区域" class="headerlink" title="跳转到nginx的配置区域"></a>跳转到nginx的配置区域</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /etc/nginx/</div></pre></td></tr></table></figure>
+<h5 id="打开添加新网站的配置文件夹"><a href="#打开添加新网站的配置文件夹" class="headerlink" title="打开添加新网站的配置文件夹"></a>打开添加新网站的配置文件夹</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd sites-enabled/</div></pre></td></tr></table></figure>
+<h4 id="5-使用vim修改-创建配置文件"><a href="#5-使用vim修改-创建配置文件" class="headerlink" title="5. 使用vim修改. 创建配置文件"></a>5. 使用vim修改. 创建配置文件</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim express.conf</div></pre></td></tr></table></figure>
+<p>conf:配置；</p>
+<h5 id="查看："><a href="#查看：" class="headerlink" title="查看："></a>查看：</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat express.conf</div></pre></td></tr></table></figure>
+<h5 id="附录："><a href="#附录：" class="headerlink" title="附录："></a>附录：</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">  listen <span class="number">80</span> <span class="keyword">default</span>;</div><div class="line">  server_name xiaoxiao.com;</div><div class="line">  root /home/liyuexi/xiaoxiao/express-api; <span class="comment">//原码位置</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="修改配置后要重启服务器"><a href="#修改配置后要重启服务器" class="headerlink" title="修改配置后要重启服务器"></a>修改配置后要重启服务器</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service nginx reload  <span class="comment">//重新加载配置文件</span></div></pre></td></tr></table></figure>
+<h4 id="5-用设置的域名去访问网站"><a href="#5-用设置的域名去访问网站" class="headerlink" title="5. 用设置的域名去访问网站"></a>5. 用设置的域名去访问网站</h4><h5 id="查看报错信息"><a href="#查看报错信息" class="headerlink" title="查看报错信息"></a>查看报错信息</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo nginx -t</div></pre></td></tr></table></figure>
+<h5 id="查看所在位置"><a href="#查看所在位置" class="headerlink" title="查看所在位置"></a>查看所在位置</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pwd</div></pre></td></tr></table></figure>
+<h2 id="局域网内模拟部署过程"><a href="#局域网内模拟部署过程" class="headerlink" title="局域网内模拟部署过程"></a>局域网内模拟部署过程</h2><h4 id="第一步-组队"><a href="#第一步-组队" class="headerlink" title="第一步. 组队"></a>第一步. 组队</h4><h4 id="第二步-查看自己IP号"><a href="#第二步-查看自己IP号" class="headerlink" title="第二步. 查看自己IP号"></a>第二步. 查看自己IP号</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ifconfig</div></pre></td></tr></table></figure>
+<h4 id="第三步-ping一下队友的IP"><a href="#第三步-ping一下队友的IP" class="headerlink" title="第三步. ping一下队友的IP"></a>第三步. ping一下队友的IP</h4><p>确认自己的机器能不能联通目标服务器<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ping <span class="number">192.168</span><span class="number">.1</span><span class="number">.125</span></div></pre></td></tr></table></figure></p>
+<h4 id="第四步-安装ssh-server"><a href="#第四步-安装ssh-server" class="headerlink" title="第四步. 安装ssh server"></a>第四步. 安装ssh server</h4><p>开放自己的机器让队友登陆开放自己的机器让队友登陆<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install openssh-server</div></pre></td></tr></table></figure></p>
+<h4 id="第五步-ssh-登陆"><a href="#第五步-ssh-登陆" class="headerlink" title="第五步. ssh 登陆"></a>第五步. ssh 登陆</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ssh liyuexi@<span class="number">192.168</span><span class="number">.1</span><span class="number">.125</span></div><div class="line">输入队友密码：××××××</div></pre></td></tr></table></figure>
+<h4 id="第六步-上传代码"><a href="#第六步-上传代码" class="headerlink" title="第六步. 上传代码"></a>第六步. 上传代码</h4><p>上传自己的代码到对方的电脑<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp -r express-api liyuexi@<span class="number">192.168</span><span class="number">.1</span><span class="number">.125</span>:xiaoxiao/</div></pre></td></tr></table></figure></p>
+<ul>
+<li>scp 是基于 ssh 的；</li>
+<li>必须有最后的冒号“：”；</li>
+<li>scp 必须在自己的开发机器上执行</li>
+</ul>
+<h4 id="第七步-配置-nginx"><a href="#第七步-配置-nginx" class="headerlink" title="第七步.  配置 nginx"></a>第七步.  配置 nginx</h4><h5 id="1-下载文件"><a href="#1-下载文件" class="headerlink" title="1. 下载文件"></a>1. 下载文件</h5><p>从liyuexi上下载20160926.pdf文件从liyuexi上下载20160926.pdf文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp liyuexi@<span class="number">192.168</span><span class="number">.1</span><span class="number">.125</span>:<span class="number">20160926.</span>pdf .</div></pre></td></tr></table></figure></p>
+<h6 id="注意-：-最后的”-”-可以用文件夹替代；"><a href="#注意-：-最后的”-”-可以用文件夹替代；" class="headerlink" title="注意 ： 最后的”.” 可以用文件夹替代；"></a>注意 ： 最后的”.” 可以用文件夹替代；</h6><h5 id="2-跳转到nginx的配置区域"><a href="#2-跳转到nginx的配置区域" class="headerlink" title="2. 跳转到nginx的配置区域"></a>2. 跳转到nginx的配置区域</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd /etc/nginx/</div></pre></td></tr></table></figure>
+<h5 id="3-打开添加新网站的配置文件夹"><a href="#3-打开添加新网站的配置文件夹" class="headerlink" title="3. 打开添加新网站的配置文件夹"></a>3. 打开添加新网站的配置文件夹</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd sites-enabled/</div></pre></td></tr></table></figure>
+<h5 id="4-使用vim-来修改配置文件"><a href="#4-使用vim-来修改配置文件" class="headerlink" title="4. 使用vim 来修改配置文件"></a>4. 使用vim 来修改配置文件</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim express.conf</div></pre></td></tr></table></figure>
+<h5 id="5-修改或添加内容在express-conf里"><a href="#5-修改或添加内容在express-conf里" class="headerlink" title="5.修改或添加内容在express.conf里"></a>5.修改或添加内容在express.conf里</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">  listen <span class="number">80</span> <span class="keyword">default</span>;</div><div class="line">  server_name xiaoxiao.com;</div><div class="line">  root /home/liyuexi/xiaoxiao/express-api;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="6-修改配置后要重启服务器"><a href="#6-修改配置后要重启服务器" class="headerlink" title="6.修改配置后要重启服务器"></a>6.修改配置后要重启服务器</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service nginx reload <span class="comment">//重新加载配置文件</span></div></pre></td></tr></table></figure>
+<h4 id="第八步-用设置的域名去访问网站"><a href="#第八步-用设置的域名去访问网站" class="headerlink" title="第八步. 用设置的域名去访问网站"></a>第八步. 用设置的域名去访问网站</h4><h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><h5 id="可以将IP号和域名绑定"><a href="#可以将IP号和域名绑定" class="headerlink" title="可以将IP号和域名绑定"></a>可以将IP号和域名绑定</h5><h4 id="设置本地的DNS"><a href="#设置本地的DNS" class="headerlink" title="设置本地的DNS"></a>设置本地的DNS</h4><p>在自己的开发机器上操作<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sodo vim /etc/hosts/</div></pre></td></tr></table></figure></p>
+<p>打开文件后写服务器的IP号和域名<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">192.168</span><span class="number">.1</span><span class="number">.125</span>   xiaoxiao.com</div></pre></td></tr></table></figure></p>
+<h2 id="配置公钥（不需要密码登陆）"><a href="#配置公钥（不需要密码登陆）" class="headerlink" title="配置公钥（不需要密码登陆）"></a>配置公钥（不需要密码登陆）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">开发机                     服务器</div><div class="line">公钥 id_rsa.pub          id_rsa.pub</div><div class="line">私钥 id_rsa            ~<span class="regexp">/.ssh/</span>authorized—keys</div></pre></td></tr></table></figure>
+<h4 id="1-生成ssh-key"><a href="#1-生成ssh-key" class="headerlink" title="1.生成ssh  key"></a>1.生成ssh  key</h4><p>在自己的开发机上执行<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd ~</div><div class="line">cd .ssh</div><div class="line">ls</div><div class="line"><span class="comment">//没有公钥可以创建公钥，执行</span></div><div class="line">ssh-keygen</div></pre></td></tr></table></figure></p>
+<h4 id="2-拷贝公钥"><a href="#2-拷贝公钥" class="headerlink" title="2.拷贝公钥"></a>2.拷贝公钥</h4><p>在自己的开发机上执行<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim id_rsa.pub <span class="comment">//打开后进行拷贝</span></div></pre></td></tr></table></figure></p>
+<h4 id="3-登陆服务器"><a href="#3-登陆服务器" class="headerlink" title="3.登陆服务器"></a>3.登陆服务器</h4><p>在自己开发机上执行<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh liyuexi@xiaoxiao.com</div></pre></td></tr></table></figure></p>
+<h4 id="4-粘贴"><a href="#4-粘贴" class="headerlink" title="4.粘贴"></a>4.粘贴</h4><p>转到服务器上执行<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd .ssh</div><div class="line">ls</div><div class="line"><span class="comment">//新建文件夹</span></div><div class="line">sudo vim authorized_keys</div></pre></td></tr></table></figure></p>
+<p>打开文件后把拷贝的公钥粘贴到文件夹上保存，退出,回到自己的开发机上登陆</p>
+<h6 id="注意：粘贴过程千万别多空格和回车"><a href="#注意：粘贴过程千万别多空格和回车" class="headerlink" title="注意：粘贴过程千万别多空格和回车"></a>注意：粘贴过程千万别多空格和回车</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh liyuexi@xiaoxiao.com <span class="comment">//此时登陆不需要密码了</span></div></pre></td></tr></table></figure>
+<h1 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h1><h4 id="什么是Express"><a href="#什么是Express" class="headerlink" title="什么是Express ?"></a>什么是Express ?</h4><p>nodejs 技术的Web应用框架<br><code>React</code> 是一个前端框架，<br><code>Express</code> 是后台框架。<br>数据库 database</p>
+<h4 id="登陆时后台操作"><a href="#登陆时后台操作" class="headerlink" title="登陆时后台操作"></a>登陆时后台操作</h4><h6 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h6><ol>
+<li>查询数据库</li>
+<li>把数据插入html模板</li>
+</ol>
+<p>官网 ： <a href="https://expressjs.com" target="_blank" rel="external">https://expressjs.com</a></p>
+<h4 id="动手express写代码"><a href="#动手express写代码" class="headerlink" title="动手express写代码"></a>动手express写代码</h4><p>初始化<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init</div></pre></td></tr></table></figure></p>
+<p>安装express<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save express</div></pre></td></tr></table></figure></p>
+<ul>
+<li>console 本意是控制台</li>
+<li>console 前台运行就是chrome devtools的console</li>
+<li><p>console 后台运行就是命令行界面<br>http 请求 = Verb + Path<br>http 请求 = get/post/… + /about</p>
+<h6 id="express的代码是要在服务器上运行的"><a href="#express的代码是要在服务器上运行的" class="headerlink" title="express的代码是要在服务器上运行的"></a>express的代码是要在服务器上运行的</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">  res.send(<span class="string">'Hello Express'</span>)</div><div class="line">&#125;)  <span class="comment">// 接收请求</span></div><div class="line">app.post(<span class="string">'/ppp'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</div><div class="line">  res.send(<span class="string">'Hello ppp'</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>get请求：只读</p>
+</li>
+<li>post请求：编译</li>
+</ul>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><h4 id="什么是路由？router"><a href="#什么是路由？router" class="headerlink" title="什么是路由？router"></a>什么是路由？router</h4><h5 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h5><ol>
+<li>路由代码</li>
+<li>其他代码</li>
+</ol>
+<h6 id="路由基本意思："><a href="#路由基本意思：" class="headerlink" title="路由基本意思："></a>路由基本意思：</h6><p>根据http请求，来决定让哪个页面要显示</p>
+<h6 id="路由拓展意思："><a href="#路由拓展意思：" class="headerlink" title="路由拓展意思："></a>路由拓展意思：</h6><p>根据http请求，来决定让哪一段代码要执行</p>
+<h4 id="读取请求参数"><a href="#读取请求参数" class="headerlink" title="读取请求参数"></a>读取请求参数</h4><p>requset = Verb + Path<br>参数（parameters)作为path来传入后台，<br>这样可以实现前台数据传入后台代码中。</p>
+<h2 id="CURL-小教程"><a href="#CURL-小教程" class="headerlink" title="CURL 小教程"></a>CURL 小教程</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl --request GET localhost:<span class="number">3000</span>/xiaoxiao</div></pre></td></tr></table></figure>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl --request POST localhost:<span class="number">3000</span>/xiaoxiao</div></pre></td></tr></table></figure>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#服务器端操作"><span class="toc-text">服务器端操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#深入服务器端"><span class="toc-text">深入服务器端</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单介绍"><span class="toc-text">简单介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#http协议参考资料：跟着peter学英语-haoqicat-com-自学"><span class="toc-text">http协议参考资料：跟着peter学英语 / haoqicat.com. ( 自学 )</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux系统："><span class="toc-text">Linux系统：</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#市面上有"><span class="toc-text">市面上有:</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#微信开发-：-H5-JS"><span class="toc-text">微信开发 ： H5 + JS</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#In-Order-to-use-server"><span class="toc-text">In Order to use server</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#you-will-install-Ubuntu-linux-Os-and-you-will-use-command-line-to-run-it"><span class="toc-text">you will install Ubuntu linux Os and you will use command line to run it.</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署项目-deploy"><span class="toc-text">部署项目(deploy)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-上传代码：ssh-git-github"><span class="toc-text">1. 上传代码：ssh/git/github</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-登陆到服务器上："><span class="toc-text">2. 登陆到服务器上：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-安装（软件）服务器-server："><span class="toc-text">3. 安装（软件）服务器 server：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-配置服务器nginx"><span class="toc-text">4. 配置服务器nginx:</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#跳转到nginx的配置区域"><span class="toc-text">跳转到nginx的配置区域</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#打开添加新网站的配置文件夹"><span class="toc-text">打开添加新网站的配置文件夹</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-使用vim修改-创建配置文件"><span class="toc-text">5. 使用vim修改. 创建配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#查看："><span class="toc-text">查看：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#附录："><span class="toc-text">附录：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#修改配置后要重启服务器"><span class="toc-text">修改配置后要重启服务器</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-用设置的域名去访问网站"><span class="toc-text">5. 用设置的域名去访问网站</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#查看报错信息"><span class="toc-text">查看报错信息</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查看所在位置"><span class="toc-text">查看所在位置</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#局域网内模拟部署过程"><span class="toc-text">局域网内模拟部署过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一步-组队"><span class="toc-text">第一步. 组队</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二步-查看自己IP号"><span class="toc-text">第二步. 查看自己IP号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三步-ping一下队友的IP"><span class="toc-text">第三步. ping一下队友的IP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第四步-安装ssh-server"><span class="toc-text">第四步. 安装ssh server</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第五步-ssh-登陆"><span class="toc-text">第五步. ssh 登陆</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第六步-上传代码"><span class="toc-text">第六步. 上传代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第七步-配置-nginx"><span class="toc-text">第七步.  配置 nginx</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-下载文件"><span class="toc-text">1. 下载文件</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注意-：-最后的”-”-可以用文件夹替代；"><span class="toc-text">注意 ： 最后的”.” 可以用文件夹替代；</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-跳转到nginx的配置区域"><span class="toc-text">2. 跳转到nginx的配置区域</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-打开添加新网站的配置文件夹"><span class="toc-text">3. 打开添加新网站的配置文件夹</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-使用vim-来修改配置文件"><span class="toc-text">4. 使用vim 来修改配置文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-修改或添加内容在express-conf里"><span class="toc-text">5.修改或添加内容在express.conf里</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-修改配置后要重启服务器"><span class="toc-text">6.修改配置后要重启服务器</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第八步-用设置的域名去访问网站"><span class="toc-text">第八步. 用设置的域名去访问网站</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS"><span class="toc-text">DNS</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#可以将IP号和域名绑定"><span class="toc-text">可以将IP号和域名绑定</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置本地的DNS"><span class="toc-text">设置本地的DNS</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置公钥（不需要密码登陆）"><span class="toc-text">配置公钥（不需要密码登陆）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-生成ssh-key"><span class="toc-text">1.生成ssh  key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-拷贝公钥"><span class="toc-text">2.拷贝公钥</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-登陆服务器"><span class="toc-text">3.登陆服务器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-粘贴"><span class="toc-text">4.粘贴</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注意：粘贴过程千万别多空格和回车"><span class="toc-text">注意：粘贴过程千万别多空格和回车</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Express"><span class="toc-text">Express</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是Express"><span class="toc-text">什么是Express ?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#登陆时后台操作"><span class="toc-text">登陆时后台操作</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#动手express写代码"><span class="toc-text">动手express写代码</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#express的代码是要在服务器上运行的"><span class="toc-text">express的代码是要在服务器上运行的</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路由"><span class="toc-text">路由</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么是路由？router"><span class="toc-text">什么是路由？router</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#代码-1"><span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#路由基本意思："><span class="toc-text">路由基本意思：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#路由拓展意思："><span class="toc-text">路由拓展意思：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#读取请求参数"><span class="toc-text">读取请求参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CURL-小教程"><span class="toc-text">CURL 小教程</span></a></li></ol></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2016/10/29/web存储/" class="prev">&larr; Prev post web存储</a>
+  
+
+  
+
+  
+    <a href="/2016/10/17/css笔记/" class="next">Next post css笔记 &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Mickey using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://7te9fe.com1.z0.glb.clouddn.com/default_avatar.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/miwenqiang">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://coding.net/u/miwenqiang">
+        
+          <i class="icon iconfont coding">&#xe607;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["slideLeft2","slideRight2","flash2"],"timer":true,"delay":5000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "D7CCC8";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

@@ -1,0 +1,376 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Mickey">
+  
+  
+  
+  
+    <meta name="description" content="html笔记1. HTML文档结构12345678910111213&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt; &...">
+  
+  <title>html笔记 [ MyBlog ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+  
+</head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2016/10/17/css笔记/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        css笔记
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2016/10/10/关于面试/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        关于面试
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://7te9fe.com1.z0.glb.clouddn.com/default_avatar.jpg"/>
+          <div id="homelink">MyBlog</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Archives</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Tags</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Categories</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="https://github.com/miwenqiang">Github</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>html笔记</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2016-10-17</span>
+      
+        <span id = "post-title-updated">Updated at 2016-10-17</span>
+      
+      
+      <span id = "post-title-categories">Category
+      
+      
+        
+        
+        <a href="/categories/学习/">学习</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/前端/">前端</a>
+      
+      </span>
+      
+    </p>
+    
+    <h1 id="html笔记"><a href="#html笔记" class="headerlink" title="html笔记"></a>html笔记</h1><h3 id="1-HTML文档结构"><a href="#1-HTML文档结构" class="headerlink" title="1. HTML文档结构"></a>1. HTML文档结构</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang="en"&gt;</div><div class="line">&lt;head&gt;</div><div class="line"> &lt;meta charset="UTF-8"&gt;</div><div class="line"> &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</div><div class="line"> &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;</div><div class="line"> &lt;title&gt;Document&lt;/title&gt;</div><div class="line"> //Html文档头部，重点是针对搜索引擎，浏览器看不到此处的内容</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line"> //Html文档的主体部分，浏览器中能看到的内容都在此处</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h3 id="2-块元素（block）"><a href="#2-块元素（block）" class="headerlink" title="2. 块元素（block）"></a>2. 块元素（block）</h3><p>特点：有大小，未指定宽度则宽度自适应，能产生布局，独立成行</p>
+<ul>
+<li>div： 典型的块元素特征</li>
+<li>p：除了具有块元素的特征外，具有上下边距(margin-top/margin-bottom)</li>
+<li>h1、h2、h3、h4、h5、h6：除了具有P标签的所有特性之外，还有具有特定的字    号，并给文字加粗</li>
+<li>ul/ol：除了具有p 标签的特性外，还多了个左填充(padding-left)</li>
+<li>dl：特性同p标签</li>
+<li>dt：特性同div</li>
+<li>dd：比div多了左边距(margin-left)</li>
+<li>Li：同div</li>
+</ul>
+<h3 id="3-行级元素（inline）"><a href="#3-行级元素（inline）" class="headerlink" title="3. 行级元素（inline）"></a>3. 行级元素（inline）</h3><p>特点：无大小，不独立成行</p>
+<ul>
+<li>span：典型的行级元素</li>
+<li>a：除了具有行级元素特性外，会使其内部的文字默认颜色变蓝色，同时添加了下划线，在IE浏览器中，a标签内部的图片会有四个边框</li>
+<li>b/strong：除了具有行级元素特性外，使其内部的文字加粗</li>
+<li>i/em：除了具有行级元素特性外，使其内部的文字倾斜</li>
+</ul>
+<h3 id="4-行级块元素-内联块（inline-block）"><a href="#4-行级块元素-内联块（inline-block）" class="headerlink" title="4. 行级块元素/内联块（inline-block）"></a>4. 行级块元素/内联块（inline-block）</h3><p>特点：不独立成行，但有大小；<br>主要有img、input</p>
+<h3 id="5-行-块转换"><a href="#5-行-块转换" class="headerlink" title="5. 行.块转换"></a>5. 行.块转换</h3><ul>
+<li>行转块  ： display: block;</li>
+<li>块转行  ： display:inline;</li>
+<li>块转行块： display:inline-block;</li>
+</ul>
+<h3 id="6-列表"><a href="#6-列表" class="headerlink" title="6. 列表"></a>6. 列表</h3><p>有序列表<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;ol&gt;</div><div class="line">   &lt;li&gt;音乐ol&lt;/li&gt; //    1.音乐</div><div class="line">   &lt;li&gt;视频ol&lt;/li&gt; //    2.视频</div><div class="line">   &lt;li&gt;图片ol&lt;/li&gt; //    3.图片</div><div class="line">&lt;/ol&gt;</div></pre></td></tr></table></figure></p>
+<p><ol><br>   <li>音乐ol</li><br>   <li>视频ol</li><br>   <li>图片ol</li><br></ol><br>无序列表<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">   &lt;li&gt;音乐ul&lt;/li&gt; //    .音乐</div><div class="line">   &lt;li&gt;视频ul&lt;/li&gt; //    .视频</div><div class="line">   &lt;li&gt;图片ul&lt;/li&gt; //    .图片</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure></p>
+<p><ul><br>   <li>音乐ul</li><br>   <li>视频ul</li><br>   <li>图片ul</li><br></ul><br>定义列表<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;dl&gt;</div><div class="line">   &lt;dt&gt;标签&lt;/dt&gt;</div><div class="line">   &lt;dd&gt;解释说明&lt;/dd&gt;</div><div class="line">&lt;/dl&gt;</div></pre></td></tr></table></figure></p>
+<p><dl><br>   <dt>标签</dt><br>   <dd>解释说明</dd><br></dl></p>
+<h3 id="7-H5新增标签"><a href="#7-H5新增标签" class="headerlink" title="7. H5新增标签"></a>7. H5新增标签</h3><ul>
+<li>header：页面或者某一区块的头部</li>
+<li>footer：页面或者某一区块的底部</li>
+<li>section：页面中的某一区块</li>
+<li>nav：导航或者是链接组</li>
+<li>article：文章</li>
+<li>aside：定义内容以外的内容（一般用在侧边栏）</li>
+<li>figure：图文解释说明，常与figcapition联合使用，figcapition是图片的标题</li>
+<li>time/mark/</li>
+<li>video、audio、canvas</li>
+</ul>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#html笔记"><span class="toc-text">html笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-HTML文档结构"><span class="toc-text">1. HTML文档结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-块元素（block）"><span class="toc-text">2. 块元素（block）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-行级元素（inline）"><span class="toc-text">3. 行级元素（inline）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-行级块元素-内联块（inline-block）"><span class="toc-text">4. 行级块元素/内联块（inline-block）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-行-块转换"><span class="toc-text">5. 行.块转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-列表"><span class="toc-text">6. 列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-H5新增标签"><span class="toc-text">7. H5新增标签</span></a></li></ol></li></ol></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2016/10/17/css笔记/" class="prev">&larr; Prev post css笔记</a>
+  
+
+  
+
+  
+    <a href="/2016/10/10/关于面试/" class="next">Next post 关于面试 &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Mickey using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://7te9fe.com1.z0.glb.clouddn.com/default_avatar.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/miwenqiang">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://coding.net/u/miwenqiang">
+        
+          <i class="icon iconfont coding">&#xe607;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["slideLeft2","slideRight2","flash2"],"timer":true,"delay":5000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "D7CCC8";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

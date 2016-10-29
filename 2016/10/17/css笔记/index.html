@@ -1,0 +1,477 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Mickey">
+  
+  
+  
+  
+    <meta name="description" content="css 笔记1. 选择器
+标签选择器：通过标签的名称来选择，例如：p{ }
+类选择器 / class选择器：.class值 {  }，一个文档中可以有多个同名的class, 例如：.wrap{ }
+Id选择器：#id值 {  }，在一个html文档中id值不能重复,例如：#nav { }
+后代选择器：E F {  }，E与F分别是一个有效的单一类型的选择器，E是F的祖先级元素，也就是说F是嵌...">
+  
+  <title>css笔记 [ MyBlog ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+  
+</head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2016/10/17/本地模拟/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        本地模拟
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2016/10/17/html笔记/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        html笔记
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://7te9fe.com1.z0.glb.clouddn.com/default_avatar.jpg"/>
+          <div id="homelink">MyBlog</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Archives</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Tags</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Categories</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="https://github.com/miwenqiang">Github</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>css笔记</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2016-10-17</span>
+      
+        <span id = "post-title-updated">Updated at 2016-10-17</span>
+      
+      
+      <span id = "post-title-categories">Category
+      
+      
+        
+        
+        <a href="/categories/学习/">学习</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/前端/">前端</a>
+      
+      </span>
+      
+    </p>
+    
+    <h1 id="css-笔记"><a href="#css-笔记" class="headerlink" title="css 笔记"></a>css 笔记</h1><h3 id="1-选择器"><a href="#1-选择器" class="headerlink" title="1. 选择器"></a>1. 选择器</h3><ul>
+<li>标签选择器：通过标签的名称来选择，例如：p{ }</li>
+<li>类选择器 / class选择器：.class值 {  }，一个文档中可以有多个同名的class, 例如：.wrap{ }</li>
+<li>Id选择器：#id值 {  }，在一个html文档中id值不能重复,例如：#nav { }</li>
+<li>后代选择器：E F {  }，E与F分别是一个有效的单一类型的选择器，E是F的祖先级元素，也就是说F是嵌套在E的内部的元素</li>
+<li>选择器群组：E,F {   }，E和F共用样式，E和F可以有嵌套关系也可以没有嵌套关系</li>
+<li>通配符 ※<em> {  }，※ </em>表示html文档中的所有标签*</li>
+</ul>
+<h3 id="2-CSS样式"><a href="#2-CSS样式" class="headerlink" title="2. CSS样式"></a>2. CSS样式</h3><h4 id="1-文字相关的样式"><a href="#1-文字相关的样式" class="headerlink" title="(1).    文字相关的样式"></a>(1).    文字相关的样式</h4><ul>
+<li>font-family：字体（web安全字体）</li>
+<li>font-size：字号（默认字号为16px，字号一般不要小于12px）</li>
+<li>color：#ff0000/red   颜色</li>
+<li>font-weight: bold/bolder,6 00~900加粗，100~500正常,normal     文字加粗</li>
+<li>font-style：italic/normal 文字倾斜/正常</li>
+<li>text-align：left/center/right/justify 文本对齐</li>
+<li>line-height：行高（1~2倍的字高,em，单行文本垂直居中：line-height=    父级容器的高度）</li>
+<li>text-indent：首行缩进（值可正可负）</li>
+<li>text-decoration：underline/overline/line-through/none;<br>文本装饰   underline = 下划线； overline = 上划线； line-through = 删除； none = 没有文本装饰</li>
+<li>word-spacing：单词间距 例如：word-spacing:10px;</li>
+<li>letter-spacing：字母间距，汉字的字间距</li>
+<li>text-transform：capitalize首字母大写 / uppercase全部大写 / lowercase全部小写 / none对文本不做任何改动</li>
+<li>white-space：nowrap强制不换行 / normal正常</li>
+</ul>
+<h4 id="2-背景相关样式"><a href="#2-背景相关样式" class="headerlink" title="(2).背景相关样式"></a>(2).背景相关样式</h4><ul>
+<li>background-color：背景色</li>
+<li>background-image：url( );背景图</li>
+<li>background-repeat：no-repeat/repeat-x/repeat-y/repeat默认repeat重复</li>
+<li>background-position：水平 垂直；背景定位<br>水平：left/center/right/数值（值可以正负），<br>垂直：top/center/bottom/数值（可正负）</li>
+<li>background-attachment：fixed固定 / scroll滚动</li>
+<li>background：#ccc url() no-repeat left center; 缩写<br> 若同时出现背景色与背景图，图永远在上</li>
+</ul>
+<h4 id="3-列表样式"><a href="#3-列表样式" class="headerlink" title="(3). 列表样式"></a>(3). 列表样式</h4><ul>
+<li>list-style-type:none / disc列表符号的类型</li>
+<li>list-style-image:url( )自定义列表符号</li>
+<li>list-style:square 方块 / inside缩写</li>
+<li>list-style-position:inside/outside（默认） 控制列表符号位置</li>
+</ul>
+<h4 id="4-链接伪类"><a href="#4-链接伪类" class="headerlink" title="(4). 链接伪类"></a>(4). 链接伪类</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;a href=<span class="string">"url"</span>&gt;内容&lt;<span class="regexp">/a&gt;</span></div></pre></td></tr></table></figure>
+<p>url：相对的url，从html文档的位置出发，寻找要链接的目标文件;<br>       绝对的url，网址比如，<a href="https://www.baidu.com" target="_blank" rel="external">https://www.baidu.com</a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img src=<span class="string">"url"</span> alt=<span class="string">" "</span>&gt;</div></pre></td></tr></table></figure></p>
+<p>url：相对url参照的也是html文档的位置</p>
+<h6 id="注意：背景样式background-image-url-参照的是css所在的位置"><a href="#注意：背景样式background-image-url-参照的是css所在的位置" class="headerlink" title="注意：背景样式background-image:url();参照的是css所在的位置"></a>注意：背景样式background-image:url();参照的是css所在的位置</h6><p>与 a 相关的效果</p>
+<ul>
+<li>a：link  { 默认的链接样式 }</li>
+<li>a：visited { 访问后的样式 }</li>
+<li>a：hover { 鼠标滑过时的样式 }</li>
+<li>a：active { 鼠标按下时的样式 }<br>一定要注意先后顺序:link  visited  hover  active</li>
+</ul>
+<h4 id="5-定位"><a href="#5-定位" class="headerlink" title="(5). 定位"></a>(5). 定位</h4><p>position:relative/absolute/fixed/static(默认，正常不变)</p>
+<ol>
+<li>找到绝对定位元素 position:absolute;</li>
+<li>指定参照物，相对定位 position:relative;</li>
+<li>left / top / bottom / right</li>
+<li>z-index : 10 ;</li>
+<li>固定定位    position : fixed ;  </li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">body&#123;</div><div class="line">    <span class="attr">position</span> : relative;</div><div class="line">&#125;</div><div class="line">p&#123;</div><div class="line">    <span class="attr">position</span> : absolute;</div><div class="line">    left : <span class="number">0</span>;</div><div class="line">    top : <span class="number">0</span>;</div><div class="line">    z-index : <span class="number">10</span> ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h6 id="注意：使用绝对定位时参照物的指定，只有绝对定位元素的祖先级元素才有资格（通常用其父级元素），并指定该元素的position-relative"><a href="#注意：使用绝对定位时参照物的指定，只有绝对定位元素的祖先级元素才有资格（通常用其父级元素），并指定该元素的position-relative" class="headerlink" title="注意：使用绝对定位时参照物的指定，只有绝对定位元素的祖先级元素才有资格（通常用其父级元素），并指定该元素的position : relative;"></a>注意：使用绝对定位时参照物的指定，只有绝对定位元素的祖先级元素才有资格（通常用其父级元素），并指定该元素的position : relative;</h6><h4 id="6-布局"><a href="#6-布局" class="headerlink" title="(6). 布局"></a>(6). 布局</h4><ul>
+<li>float:left/right/none;  浮动</li>
+<li>clear:left/right/both;  清浮动</li>
+<li>display:block/inline/inline-block/none  行块转换</li>
+<li>overflow:hidden（盒子以外的内容隐藏） / scroll(滚动) / auto(自动) / visible(默认，可见的)</li>
+</ul>
+<h6 id="注意：子元素使用-float-父级元素高度不能自适应，给父级元素添加上-overflow-hidden-clear-both-清浮动"><a href="#注意：子元素使用-float-父级元素高度不能自适应，给父级元素添加上-overflow-hidden-clear-both-清浮动" class="headerlink" title="注意：子元素使用 float ,父级元素高度不能自适应，给父级元素添加上 overflow:hidden;   clear:both;  清浮动"></a>注意：子元素使用 float ,父级元素高度不能自适应，给父级元素添加上 overflow:hidden;   clear:both;  清浮动</h6><h4 id="7-表格"><a href="#7-表格" class="headerlink" title="(7). 表格"></a>(7). 表格</h4><p>border-spacing:数值(左右，上下); 设置单元格间距<br>border-collapse:collapse;  合并单元格的边<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;table&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;td&gt;第一行第一列&lt;/td&gt;</div><div class="line">        &lt;td&gt;第一行第二列&lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;td&gt;第二行第一列&lt;/td&gt;</div><div class="line">        &lt;td&gt;第二行第二列&lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">第一行第一列</th>
+<th style="text-align:left">第一行第二列</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">第二行第一列</td>
+<td style="text-align:left">第二行第二列</td>
+</tr>
+</tbody>
+</table>
+<h2 id="三-csss3"><a href="#三-csss3" class="headerlink" title="三. csss3"></a>三. csss3</h2><h3 id="1-CSS3选择器"><a href="#1-CSS3选择器" class="headerlink" title="1. CSS3选择器"></a>1. CSS3选择器</h3><h4 id="1-位置："><a href="#1-位置：" class="headerlink" title="(1).  位置："></a>(1).  位置：</h4><ul>
+<li>first-child/last-child</li>
+<li>:nth-child(n)，n可以是数字，也可以是odd(奇数) / even(偶数)，也可以是    表达式    2n+1</li>
+</ul>
+<h4 id="2-属性选择器："><a href="#2-属性选择器：" class="headerlink" title="(2).  属性选择器："></a>(2).  属性选择器：</h4><ul>
+<li>a[ href ] , p[ title ];</li>
+<li>a[ href = ”#” ]</li>
+<li>a[ href^ = ”http://” ]{ }; 选择其src属性值以 “http://“ 开头的每个a标签</li>
+<li>a[ href$ = ”.pdf” ]{ };  选择其src属性值以 “.pdf” 为结尾的所有a标签</li>
+<li>a[ href* = ”adobe” ]{ }</li>
+</ul>
+<h4 id="3-其他"><a href="#3-其他" class="headerlink" title="(3). 其他"></a>(3). 其他</h4><p>:first-letter/:first-line<br>:before/:after</p>
+<ul>
+<li>p : first-letter    选择每个 &lt; p &gt; 元素的首字母。</li>
+<li>p : first-line    选择每个 &lt; p &gt; 元素的首行。</li>
+<li>p : before    在每个 &lt; p &gt; 元素的内容之前插入内容。</li>
+<li>p : after    在每个 &lt; p &gt; 元素的内容之后插入内容。</li>
+<li>p    选择所有 &lt; p &gt; 元素。</li>
+<li>div ， p    选择所有 &lt; div &gt; 元素和所有 &lt; p &gt; 元素。</li>
+<li>div p    选择 &lt; div &gt; 元素内部的所有 &lt; p &gt; 元素。</li>
+<li>div &gt; p    选择父元素为 &lt; div &gt; 元素的所有 &lt; p &gt; 元素。</li>
+<li>div + p    选择紧接在 &lt; div &gt; 元素之后的所有 &lt; p &gt; 元素。</li>
+</ul>
+<h3 id="2-css3样式"><a href="#2-css3样式" class="headerlink" title="2. css3样式"></a>2. css3样式</h3><h4 id="1-边框"><a href="#1-边框" class="headerlink" title="(1). 边框"></a>(1). 边框</h4><ul>
+<li>border-radius : left-top / right-top / right-bottom / left-bottom;(顺时针顺序)</li>
+<li>border-radius:num;四个圆角一样</li>
+<li>box-shadow:水平距离  垂直距离  模糊度  投影尺寸  颜色  类型；</li>
+<li>投影描边：box-shadow:0 0 0 2px;在原有的border之外添加了2px的描边效果；</li>
+</ul>
+<h6 id="备注：水平与垂直距离可以使用负数，给一个元素指定多个投影，多个投影之间使用逗号隔开，box-shadow-1px-2px-2px-2px"><a href="#备注：水平与垂直距离可以使用负数，给一个元素指定多个投影，多个投影之间使用逗号隔开，box-shadow-1px-2px-2px-2px" class="headerlink" title="备注：水平与垂直距离可以使用负数，给一个元素指定多个投影，多个投影之间使用逗号隔开，box-shadow : 1px 2px,-2px -2px;"></a>备注：水平与垂直距离可以使用负数，给一个元素指定多个投影，多个投影之间使用逗号隔开，box-shadow : 1px 2px,-2px -2px;</h6><h4 id="2-背景"><a href="#2-背景" class="headerlink" title="(2). 背景"></a>(2). 背景</h4><ul>
+<li>background-size: 200px 300px ;给固定大小</li>
+<li>background-size: 100% 80% ;(如果只给一个值，则第二个值会为auto)</li>
+<li>background-size: Cover ; 覆盖所有背景区域，图片等比缩放，背景图像的某些部分也许无法显示在背景定位区域中。</li>
+<li>background-size: Contain ; 等比缩放把图像扩展至最大尺寸，以使其宽度或高度完全适应内容区域(不一定完全覆盖背景区域)。</li>
+<li>background-origin：规定背景图片的起始位置 / 设置背景图原点                      </li>
+<li>background-origin：border-box ； 边框盒子</li>
+<li>background-origin：content-box ;  内容盒子</li>
+<li>background-origin：padding-box ;  (默认)</li>
+<li>background-clip:规定背景图的绘制区域，值同上</li>
+</ul>
+<h4 id="3-文本效果"><a href="#3-文本效果" class="headerlink" title="(3). 文本效果"></a>(3). 文本效果</h4><ul>
+<li>text-shadow ： 给文字添加一个或多个阴影<br></li>
+<li>text-shadow: 水平距离 垂直距离 模糊 颜色</li>
+</ul>
+<h6 id="备注：如果有多个阴影，俩个阴影之间用逗号隔开；"><a href="#备注：如果有多个阴影，俩个阴影之间用逗号隔开；" class="headerlink" title="备注：如果有多个阴影，俩个阴影之间用逗号隔开；"></a>备注：如果有多个阴影，俩个阴影之间用逗号隔开；</h6><p>例如：text-shadow:1px 2px 3px #999,-2px -1px 3px #000;</p>
+<p>CSS换行的问题：</p>
+<ul>
+<li>强制换行：word-wrap : break-word ;</li>
+<li>强制不换行：white-space : nowrap ;</li>
+<li>自动换行：word-wrap : normal ;</li>
+</ul>
+<h4 id="4-自定义字体"><a href="#4-自定义字体" class="headerlink" title="(4). 自定义字体"></a>(4). 自定义字体</h4><p>@font-face  <br><br>在线字体格式转换：<a href="https://www.fontsquirrel.com/tools/webfont-generator" target="_blank" rel="external">https://www.fontsquirrel.com/tools/webfont-generator</a><br>例如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line"><span class="comment">/*定义字体*/</span></div><div class="line">@font-face&#123;</div><div class="line">    font-family: myFirstFont;</div><div class="line">    src:  url(<span class="string">'Sansation_Light.ttf'</span>),</div><div class="line">          url(<span class="string">'Sansation_Light.eot'</span>), <span class="comment">/* IE9+ */</span></div><div class="line">    	  url(“Sansation_Light.svg”),</div><div class="line">    	  url(“Sansation_Light.woff”);</div><div class="line">&#125;</div><div class="line">div&#123;</div><div class="line">    font-family:myFirstFont;<span class="comment">/*设置字体*/</span></div><div class="line">&#125;</div><div class="line">&lt;<span class="regexp">/style&gt;</span></div></pre></td></tr></table></figure></p>
+<h4 id="5-线性渐变："><a href="#5-线性渐变：" class="headerlink" title="(5). 线性渐变："></a>(5). 线性渐变：</h4><ul>
+<li>background-image : linear-gradient(#f00,#00f) ; (默认颜色从上到下)</li>
+<li>background-image : linear-gradient(left,#f00,#00f) ;从左往右渐变</li>
+<li>left = 90deg  从左往右渐变</li>
+<li>top = 180deg 从上往下渐变</li>
+<li>60deg 从左上角开始以 60deg 开始渐变</li>
+</ul>
+<h4 id="6-厂商前缀："><a href="#6-厂商前缀：" class="headerlink" title="(6). 厂商前缀："></a>(6). 厂商前缀：</h4><p>-webkit-    谷歌 · 苹果 · 360 · 猎豹<br><br>-moz-    火狐<br><br>-o-      欧朋<br><br>-ms-     IE浏览器</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#css-笔记"><span class="toc-text">css 笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-选择器"><span class="toc-text">1. 选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-CSS样式"><span class="toc-text">2. CSS样式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-文字相关的样式"><span class="toc-text">(1).    文字相关的样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-背景相关样式"><span class="toc-text">(2).背景相关样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-列表样式"><span class="toc-text">(3). 列表样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-链接伪类"><span class="toc-text">(4). 链接伪类</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注意：背景样式background-image-url-参照的是css所在的位置"><span class="toc-text">注意：背景样式background-image:url();参照的是css所在的位置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-定位"><span class="toc-text">(5). 定位</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注意：使用绝对定位时参照物的指定，只有绝对定位元素的祖先级元素才有资格（通常用其父级元素），并指定该元素的position-relative"><span class="toc-text">注意：使用绝对定位时参照物的指定，只有绝对定位元素的祖先级元素才有资格（通常用其父级元素），并指定该元素的position : relative;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-布局"><span class="toc-text">(6). 布局</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注意：子元素使用-float-父级元素高度不能自适应，给父级元素添加上-overflow-hidden-clear-both-清浮动"><span class="toc-text">注意：子元素使用 float ,父级元素高度不能自适应，给父级元素添加上 overflow:hidden;   clear:both;  清浮动</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-表格"><span class="toc-text">(7). 表格</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-csss3"><span class="toc-text">三. csss3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-CSS3选择器"><span class="toc-text">1. CSS3选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-位置："><span class="toc-text">(1).  位置：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-属性选择器："><span class="toc-text">(2).  属性选择器：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-其他"><span class="toc-text">(3). 其他</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-css3样式"><span class="toc-text">2. css3样式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-边框"><span class="toc-text">(1). 边框</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#备注：水平与垂直距离可以使用负数，给一个元素指定多个投影，多个投影之间使用逗号隔开，box-shadow-1px-2px-2px-2px"><span class="toc-text">备注：水平与垂直距离可以使用负数，给一个元素指定多个投影，多个投影之间使用逗号隔开，box-shadow : 1px 2px,-2px -2px;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-背景"><span class="toc-text">(2). 背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-文本效果"><span class="toc-text">(3). 文本效果</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#备注：如果有多个阴影，俩个阴影之间用逗号隔开；"><span class="toc-text">备注：如果有多个阴影，俩个阴影之间用逗号隔开；</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-自定义字体"><span class="toc-text">(4). 自定义字体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-线性渐变："><span class="toc-text">(5). 线性渐变：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-厂商前缀："><span class="toc-text">(6). 厂商前缀：</span></a></li></ol></li></ol></li></ol></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2016/10/17/本地模拟/" class="prev">&larr; Prev post 本地模拟</a>
+  
+
+  
+
+  
+    <a href="/2016/10/17/html笔记/" class="next">Next post html笔记 &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Mickey using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://7te9fe.com1.z0.glb.clouddn.com/default_avatar.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/miwenqiang">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://coding.net/u/miwenqiang">
+        
+          <i class="icon iconfont coding">&#xe607;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["slideLeft2","slideRight2","flash2"],"timer":true,"delay":5000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "D7CCC8";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

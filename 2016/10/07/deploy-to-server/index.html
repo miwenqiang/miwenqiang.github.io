@@ -1,0 +1,420 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Mickey">
+  
+  
+  
+  
+    <meta name="description" content="项目部署：典型的 nodejs 全栈项目Google 的设计规范
+materialup.com
+
+申请 aliyun 服务器国外还有 AWS 可以用。
+登陆
+1ssh root@139.196.28.83
+创建一个新的普通用户
+1adduser peter --ingroup sudo
+切换到普通用户
+1su peter
+退出登陆
+Ctrl-D
+绑定域名 DNShttp://godaddy....">
+  
+  <title>mongodb操作 [ MyBlog ]</title>
+  
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+  
+</head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2016/10/07/mongodb操作/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        mongodb操作
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2016/10/04/es6/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        ES6快速入门
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="http://7te9fe.com1.z0.glb.clouddn.com/default_avatar.jpg"/>
+          <div id="homelink">MyBlog</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Archives</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Tags</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Categories</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="https://github.com/miwenqiang">Github</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>mongodb操作</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">Created at 2016-10-07</span>
+      
+        <span id = "post-title-updated">Updated at 2016-10-17</span>
+      
+      
+      <span id = "post-title-categories">Category
+      
+      
+        
+        
+        <a href="/categories/学习/">学习</a>
+      
+      </span>
+      
+      
+      <span id = "post-title-tags">
+      Tag
+      
+      
+        
+        
+        <a href="/tags/后台/">后台</a>
+      
+      </span>
+      
+    </p>
+    
+    <h1 id="项目部署：典型的-nodejs-全栈项目"><a href="#项目部署：典型的-nodejs-全栈项目" class="headerlink" title="项目部署：典型的 nodejs 全栈项目"></a>项目部署：典型的 nodejs 全栈项目</h1><h3 id="Google-的设计规范"><a href="#Google-的设计规范" class="headerlink" title="Google 的设计规范"></a>Google 的设计规范</h3><ul>
+<li>materialup.com</li>
+</ul>
+<h3 id="申请-aliyun-服务器"><a href="#申请-aliyun-服务器" class="headerlink" title="申请 aliyun 服务器"></a>申请 aliyun 服务器</h3><p>国外还有 AWS 可以用。</p>
+<p>登陆</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh root@139.196.28.83</div></pre></td></tr></table></figure>
+<p>创建一个新的普通用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adduser peter --ingroup sudo</div></pre></td></tr></table></figure>
+<p>切换到普通用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">su peter</div></pre></td></tr></table></figure>
+<p>退出登陆</p>
+<p>Ctrl-D</p>
+<h3 id="绑定域名-DNS"><a href="#绑定域名-DNS" class="headerlink" title="绑定域名 DNS"></a>绑定域名 DNS</h3><p><a href="http://godaddy.com/" target="_blank" rel="external">http://godaddy.com/</a> 上可以买到域名。但是我们这里模拟一下本地域名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/hosts</div></pre></td></tr></table></figure>
+<p>填写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">139.196.28.83 peter.com</div></pre></td></tr></table></figure>
+<h3 id="从-github-clone-代码到服务器"><a href="#从-github-clone-代码到服务器" class="headerlink" title="从 github clone 代码到服务器"></a>从 github clone 代码到服务器</h3><p>安装 git</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone xxx.git</div></pre></td></tr></table></figure>
+<h3 id="安-nodejs"><a href="#安-nodejs" class="headerlink" title="安 nodejs"></a>安 nodejs</h3><p>使用 nvm 来安装</p>
+<p>安装 curl</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get update</div><div class="line">sudo apt-get install -y curl</div></pre></td></tr></table></figure>
+<p>运行安装 nvm 的脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash</div></pre></td></tr></table></figure>
+<p>重新加载 nvm</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source .bashrc</div></pre></td></tr></table></figure>
+<p>列出所有可以安装的 node 版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm ls-remote</div></pre></td></tr></table></figure>
+<p>执行安装命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm install v6.8.0</div></pre></td></tr></table></figure>
+<p>列出所有系统上的 node 版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nvm ls</div></pre></td></tr></table></figure>
+<h3 id="开始部署-client"><a href="#开始部署-client" class="headerlink" title="开始部署 client"></a>开始部署 client</h3><p>安装所有依赖包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd digicity-express-api/client/</div><div class="line">npm install  # 使用 cnpm 会更快些</div></pre></td></tr></table></figure>
+<h3 id="重新映射端口"><a href="#重新映射端口" class="headerlink" title="重新映射端口"></a>重新映射端口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run build # 得到 bundle.js</div></pre></td></tr></table></figure>
+<p>现在需要启动 server.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mkdir public</div><div class="line">cd public</div><div class="line">mv ../dist/bundle.js .</div><div class="line">mv ../index.html # 修改里面的 bundle.js 的路径</div></pre></td></tr></table></figure>
+<p>现在需要把 8080 端口，映射到 80（80端口是 http 服务的默认端口，通常都是默认打开的）</p>
+<p>首先安装 nginx 服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install -y nginx</div></pre></td></tr></table></figure>
+<p>先删除 default 页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /etc/nginx/site_enabled/</div><div class="line">sudo rm default</div></pre></td></tr></table></figure>
+<p>使用 vim 创建自己的配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim client.conf</div></pre></td></tr></table></figure>
+<p>填写内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">    listen     80 default;</div><div class="line">    server_name client.haoqicat.com;</div><div class="line"></div><div class="line">    location / &#123;</div><div class="line">        proxy_pass http://localhost:8000;</div><div class="line">        proxy_set_header X-Forwarded-Proto $scheme;</div><div class="line">        proxy_set_header Host $http_x_forwarded_host;</div><div class="line">        proxy_http_version 1.1;</div><div class="line">        proxy_set_header Upgrade $http_upgrade;</div><div class="line">        proxy_set_header Connection &quot;upgrade&quot;;</div><div class="line">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</div><div class="line">        proxy_read_timeout 3m;</div><div class="line">        proxy_send_timeout 3m;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>重启 nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo service nginx reload</div></pre></td></tr></table></figure>
+<p>现在 client 已经可以跑起来了，但是，如果我自己的笔记本的命令行一关闭，那么服务器就死掉了，这个怎么来解决呢？</p>
+<p>所以说，现在我需要一种形式来维持服务器上的命令行不死。</p>
+<h3 id="使用-tmux"><a href="#使用-tmux" class="headerlink" title="使用 tmux"></a>使用 tmux</h3><p>tmux 可以帮助我们维持远端的多个命令行，保持活跃状态。</p>
+<p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install tmux</div></pre></td></tr></table></figure>
+<p>使用就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tmux</div></pre></td></tr></table></figure>
+<p>然后在 tmux 之中打开的命令行，就不会因为我们自己的命令行关闭而死掉了。</p>
+<p>再次登录的时候，执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">tmux a</div><div class="line"># 退出 tmux 采用 ctrl-a-d/ctrl-b-d</div></pre></td></tr></table></figure>
+<p>就可以再次看到那个命令行了。参考：<a href="http://haoduoshipin.com/v/41" target="_blank" rel="external">http://haoduoshipin.com/v/41</a></p>
+<h3 id="部署-server"><a href="#部署-server" class="headerlink" title="部署 server"></a>部署 server</h3><p>现在登录到服务器，再来启动一个 tmux 的会话</p>
+<p>ctrl-a-c/ctrl-b-c</p>
+<p>然后在新会话中启动 server 代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd ~/digicity-express-api/server</div><div class="line">cpm i</div><div class="line">node index.js # 提前保证 mongodb 是启动的</div></pre></td></tr></table></figure>
+<p>现在来进行端口映射</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">server&#123;</div><div class="line">  listen     80;</div><div class="line">  server_name api.haoqicat.com;</div><div class="line"></div><div class="line">  location / &#123;</div><div class="line">      proxy_pass http://localhost:3003;</div><div class="line">      proxy_set_header X-Forwarded-Proto $scheme;</div><div class="line">      proxy_set_header Host $http_x_forwarded_host;</div><div class="line">      proxy_http_version 1.1;</div><div class="line">      proxy_set_header Upgrade $http_upgrade;</div><div class="line">      proxy_set_header Connection &quot;upgrade&quot;;</div><div class="line">      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</div><div class="line">      proxy_read_timeout 3m;</div><div class="line">      proxy_send_timeout 3m;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>TIP: 在各个 tmux 会话之间跳转</p>
+<p>ctrl-b-p/ctrl-b-n</p>
+<p>这样，server 端就启动了</p>
+<h1 id="链接前后端"><a href="#链接前后端" class="headerlink" title="链接前后端"></a>链接前后端</h1><p>修改 settings.js 文件，最终内容如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const Settings = &#123;</div><div class="line">  host: &apos;http://api.haoqicat.com&apos;</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default Settings;</div></pre></td></tr></table></figure>
+<p>重新打包 bundle.js 。</p>
+<h3 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h3><p>这样，前后端就可以协同工作了。</p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <div class="random-toc">
+    <h2>Table of Content</h2>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#项目部署：典型的-nodejs-全栈项目"><span class="toc-text">项目部署：典型的 nodejs 全栈项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Google-的设计规范"><span class="toc-text">Google 的设计规范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#申请-aliyun-服务器"><span class="toc-text">申请 aliyun 服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绑定域名-DNS"><span class="toc-text">绑定域名 DNS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从-github-clone-代码到服务器"><span class="toc-text">从 github clone 代码到服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安-nodejs"><span class="toc-text">安 nodejs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开始部署-client"><span class="toc-text">开始部署 client</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重新映射端口"><span class="toc-text">重新映射端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-tmux"><span class="toc-text">使用 tmux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署-server"><span class="toc-text">部署 server</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#链接前后端"><span class="toc-text">链接前后端</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#大功告成"><span class="toc-text">大功告成</span></a></li></ol></li></ol></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2016/10/07/mongodb操作/" class="prev">&larr; Prev post mongodb操作</a>
+  
+
+  
+
+  
+    <a href="/2016/10/04/es6/" class="next">Next post ES6快速入门 &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Mickey using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="http://7te9fe.com1.z0.glb.clouddn.com/default_avatar.jpg">
+    <p id="description"></p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/miwenqiang">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://coding.net/u/miwenqiang">
+        
+          <i class="icon iconfont coding">&#xe607;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["slideLeft2","slideRight2","flash2"],"timer":true,"delay":5000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "D7CCC8";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+
